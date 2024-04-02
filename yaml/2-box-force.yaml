@@ -1,0 +1,51 @@
+nodes:
+  Node1: [0, 0, 0]
+  Node2: [1, 0, 0]
+  Node3: [1, 1, 0]
+  Node4: [0, 1, 0]
+
+  Node5: [2, 0, 0]
+  Node6: [2, 1, 0]
+
+connections:
+  bar:
+    - [Node1, Node3]
+    - [Node2, Node4]
+
+    - [Node2, Node6]
+    - [Node3, Node5]
+
+  string:
+    - String1: [Node1, Node2]
+    
+    - [Node3, Node4]
+    - [Node4, Node1]
+    
+    - [Node2, Node5]
+    - [Node5, Node6]
+    - [Node6, Node3]
+  
+  string_hightension:
+    - String2: [Node2, Node3]
+
+pin:
+  Node1: [True, True, False]
+  Node2: [False, True, False]
+
+builders:
+  string:
+    stiffness: 100
+    pretension: 5
+  
+  string_hightension:
+    stiffness: 100
+    pretension: 10
+
+control:
+  String1:
+    node: Node1
+    direction: [-0.25, 0, 0]
+  # String2:
+  #   node: Node2
+  #   direction: [0, -.25, 0]
+
